@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Payment Page</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: url("p2img.jpg") no-repeat center center/cover;
+    height: 100vh;
+}
+.payment-box {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+}
+
+h2 {
+    text-align: center;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.card-btn {
+    background: green;
+    color: white;
+}
+
+.card-btn:hover {
+    background: darkgreen;
+}
+
+.gpay {
+    background: #4285F4;
+    color: white;
+}
+
+.phonepe {
+    background: #5f259f;
+    color: white;
+}
+
+.bill-box {
+    background: #fafafa;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="payment-box">
+    <h2>Payment Details</h2>
+
+    <!-- CARD PAYMENT -->
+    <form onsubmit="return paymentSuccess()">
+        <label>Name on Card</label>
+        <input type="text" required>
+
+        <label>Card Number</label>
+        <input type="text" required>
+
+        <label>Expiry Date</label>
+        <input type="month" required>
+
+        <label>CVV</label>
+        <input type="password" required>
+
+        <label>Amount</label>
+        <input type="text" id="amount" readonly>
+
+        <div class="bill-box">
+            <h3>Bill Summary</h3>
+            <p>Hall Booking: ₹30000</p>
+            <p>Catering: ₹15000</p>
+            <p>Decoration: ₹5000</p>
+            <hr>
+            <h4 id="total"></h4>
+        </div>
+
+        <button type="submit" class="card-btn">Pay with Card</button>
+    </form>
+
+    <hr>
+
+    <!-- UPI PAYMENT -->
+    <h3>Select UPI Payment</h3>
+
+    <button class="gpay" onclick="pay('Google Pay')">Pay with Google Pay</button>
+    <button class="phonepe" onclick="pay('PhonePe')">Pay with PhonePe</button>
+
+    <p id="msg"></p>
+</div>
+
+<script>
+// Get amount from URL
+let amount = new URLSearchParams(window.location.search).get('amount') || 50000;
+
+// Show amount
+document.getElementById("amount").value = amount;
+document.getElementById("total").innerHTML = "Total Amount: ₹" + amount;
+
+// Card payment
+function paymentSuccess() {
+    alert("Payment Successful ✅");
+    window.location.href = "success.html";
+    return false;
+}
+
+// UPI payment
+function pay(method){
+    document.getElementById("msg").innerHTML =
+        "Redirecting to " + method + "...";
+
+    setTimeout(()=>{
+        alert(method + " Payment Successful ✅");
+        window.location.href = "success.html";
+    },2000);
+}
+</script>
+
+</body>
+</html>

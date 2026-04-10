@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Wedding Planner</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.box{
+    width:420px;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    text-align:center;
+}
+
+h2{
+    color:#e91e63;
+}
+
+input{
+    width:90%;
+    padding:10px;
+    margin:10px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+button{
+    width:95%;
+    padding:10px;
+    background:#e91e63;
+    color:white;
+    border:none;
+    border-radius:5px;
+    font-size:16px;
+    margin-top:10px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#c2185b;
+}
+
+.result{
+    margin-top:20px;
+    text-align:left;
+    background:#fce4ec;
+    padding:15px;
+    border-radius:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+    <h2>🤖 Smart Wedding Planner</h2>
+
+    <input type="number" id="budget" placeholder="Enter Budget (₹)">
+    <input type="number" id="guests" placeholder="Number of Guests">
+
+    <button onclick="generatePlan()">Generate Smart Plan</button>
+
+    <div class="result" id="output"></div>
+
+    <!-- NEW BUTTON (Hidden Initially) -->
+    <button id="nextBtn" onclick="goToBooking()" style="display:none;">
+        Proceed to Event Booking
+    </button>
+</div>
+
+<script>
+function generatePlan(){
+
+    let budget = parseInt(document.getElementById("budget").value);
+    let guests = parseInt(document.getElementById("guests").value);
+
+    if(!budget || !guests){
+        alert("Enter all details!");
+        return;
+    }
+
+    // Smart calculation
+    let perGuest = Math.floor(budget / guests);
+
+    let hallBudget = Math.floor(budget * 0.4);
+    let foodBudget = Math.floor(budget * 0.4);
+    let decorBudget = Math.floor(budget * 0.2);
+
+    let hall = "";
+    let food = "";
+    let decor = "";
+
+    // Smart suggestions
+    if(perGuest < 800){
+        hall = "Community Hall";
+        food = "Simple Veg Meals";
+        decor = "Basic Decoration";
+    }
+    else if(perGuest < 2000){
+        hall = "Banquet Hall";
+        food = "Veg + Non-Veg Buffet";
+        decor = "Theme Decoration";
+    }
+    else{
+        hall = "Luxury Resort";
+        food = "Premium Multi-Cuisine";
+        decor = "Designer Decoration";
+    }
+
+    document.getElementById("output").innerHTML = `
+        <b>💰 Budget per Guest:</b> ₹${perGuest}<br><br>
+
+        <b>🏢 Hall Suggestion:</b> ${hall} (₹${hallBudget})<br>
+        <b>🍽 Catering Plan:</b> ${food} (₹${foodBudget})<br>
+        <b>🎀 Decoration:</b> ${decor} (₹${decorBudget})<br><br>
+
+        <b>🤖 AI Tip:</b> ${
+            guests > 300 
+            ? "Large crowd! Book spacious venue & extra staff."
+            : "Manageable crowd. Focus more on decoration & experience."
+        }
+    `;
+
+    // SHOW NEXT BUTTON AFTER PLAN
+    document.getElementById("nextBtn").style.display = "block";
+}
+
+// REDIRECT TO EVENT BOOKING PAGE
+function goToBooking(){
+    window.location.href = "eb.html";
+}
+</script>
+
+</body>
+</html>

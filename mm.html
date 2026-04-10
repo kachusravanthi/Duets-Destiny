@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Matrimony Meet Booking</title>
+    <style>
+       body {
+    background-image: url('mm3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}        header {
+            background-color: #ff6f61;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            color:white
+        }
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: blur;
+            padding: 20px;
+            box-shadow: 0px 0px 10px #ccc;
+            border-radius: 8px;
+            color:white
+        }
+        h2 {
+            color: white;
+
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        form input, form select, form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        form button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #e55b50;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Matrimony Meet Booking</h1>
+    </header>
+
+    <div class="container">
+        <h2>Event Details</h2>
+        <p>
+            Join our exclusive Matrimony Meet to find your perfect match!  
+            Network with other singles, attend fun activities, and explore matchmaking opportunities.  
+            Event Date: <strong>May 10, 2026</strong>  
+            Location: <strong>T Nagar, Chennai</strong>
+        </p>
+
+        <h2>Register for the Event</h2>
+        <form id="matrimonyForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <input type="text" id="phone" placeholder="Phone Number" required>
+            <select id="gender" required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            <!-- Preferred Location Input -->
+            <input type="text" id="location" placeholder="Your Preferred Location" required>
+            
+            <button type="submit">Register Now</button>
+        </form>
+    </div>
+<script>
+document.getElementById("matrimonyForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    
+    // Get form values
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const gender = document.getElementById("gender").value;
+    const location = document.getElementById("location").value;
+
+    let price = 5000;
+
+    alert(`Thank you, ${name}! your meet booked successfully`);
+
+    // Redirect to payment page with amount
+    window.location.href = "p.html?amount=" + price;
+});
+</script>
+  </body>
+</html>

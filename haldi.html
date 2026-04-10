@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haldi Ceremony</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to right, #fceabb, #f8b500);
+    }
+
+    header {
+        height: 100vh;
+        background: url('https://images.pexels.com/photos/12153938/pexels-photo-12153938.jpeg') center/cover no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: relative;
+    }
+
+    .overlay {
+        background: rgba(255, 204, 0, 0.5);
+        padding: 40px;
+        border-radius: 20px;
+        color: #333;
+    }
+
+    .overlay h1 {
+        font-size: 3.5rem;
+        color: #b8860b;
+        text-shadow: 0 0 10px white;
+    }
+
+    section {
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    .card {
+        background: rgba(255,255,255,0.7);
+        padding: 25px;
+        margin: 20px auto;
+        max-width: 600px;
+        border-radius: 15px;
+    }
+
+    select, input, textarea {
+        width: 80%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 10px;
+        border: none;
+    }
+
+    button {
+        padding: 10px 20px;
+        background: #e6a700;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #ffcc00;
+    }
+
+    footer {
+        background: #e6a700;
+        color: white;
+        padding: 15px;
+        text-align: center;
+    }
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <div class="overlay">
+        <h1>Haldi Ceremony 💛</h1>
+        
+    </div>
+</header>
+
+<section>
+    <div class="card">
+        <h2>Event Details 🌼</h2>
+        <p><b>Date:</b> 10 Feb 2027</p>
+        <p><b>Time:</b> 10:00 AM</p>
+        <p><b>Venue:</b> Bride's Home</p>
+    </div>
+</section>
+
+<section>
+    <div class="card">
+        <h2>🎧 Select DJ Music</h2>
+        <select>
+            <option>Bollywood Hits</option>
+            <option>DJ Remix</option>
+            <option>Romantic Songs</option>
+            <option>Folk Songs</option>
+        </select>
+    </div>
+</section>
+<!-- 📸 Photography Options -->
+<section>
+    <div class="card">
+        <h2>📸 Choose Photography Style</h2>
+
+        <select id="photoStyle" onchange="showPhotoChoice()">
+            <option value="">-- Select Style --</option>
+            <option value="Candid">Candid Photography 😊</option>
+            <option value="Traditional">Traditional Photography 📷</option>
+            <option value="Cinematic">Cinematic Video 🎬</option>
+            <option value="Drone">Drone Shots 🚁</option>
+        </select>
+
+        <h3>🎥 Photographer Package</h3>
+        <select id="photographer">
+            <option>Basic Package</option>
+            <option>Premium Package</option>
+            <option>Luxury Wedding Shoot</option>
+        </select>
+
+        <p id="output" style="margin-top:15px; font-weight:bold;"></p>
+    </div>
+</section>
+
+<section>
+    <div class="card">
+        <h2>🎉 Decoration Style</h2>
+        <select>
+            <option>Floral Yellow Theme 🌼</option>
+            <option>Traditional Haldi Setup 🪔</option>
+            <option>Modern Minimal Decor ✨</option>
+        </select>
+    </div>
+</section>
+
+<section>
+    <div class="card">
+        <h2>💬 Leave a Message</h2>
+        <input type="text" placeholder="Your Name">
+        <textarea rows="4" placeholder="Write your wishes..."></textarea>
+        <button onclick="bookHaldi()">Book Haldi Event</button>
+    </div>
+</section>
+
+<footer>
+    <p>With love 💛 Haldi Celebration</p>
+</footer>
+<script>
+function bookHaldi() {
+    alert("Haldi Event Booked Successfully 💛");
+
+    let price = 8000;
+
+    // redirect to payment page
+    window.location.href = "p.html?amount=" + price;
+}
+</script>
+
+
+</body>
+</html>
+

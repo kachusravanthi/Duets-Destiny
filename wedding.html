@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wedding Booking</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #ffe6f0;
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+    color: #e91e63;
+}
+.box {
+    background: white;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 8px gray;
+}
+input, select {
+    width: 95%;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+img {
+    width: 140px;
+    height: 100px;
+    margin: 5px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+button {
+    background: #e91e63;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background: #d81b60;
+}
+</style>
+</head>
+<body>
+
+<h1>💍 Wedding Booking 💍</h1>
+
+<form id="bookingForm">
+
+<!-- User Details -->
+<div class="box">
+<h3>👤 User Details</h3>
+<input type="text" id="name" placeholder="Name" required><br>
+<input type="text" id="phone" placeholder="Phone" required><br>
+<input type="number" id="guests" placeholder="Guests Count" required>
+</div>
+
+<!-- Religion -->
+<div class="box">
+<h3>🙏 Religion</h3>
+<select id="religion" required>
+<option value="">Select Religion</option>
+<option>Hindu</option>
+<option>Christian</option>
+<option>Muslim</option>
+<option>Sikh</option>
+<option>Other</option>
+</select>
+</div>
+
+<!-- Venue -->
+<div class="box">
+<h3>🏛 Venue</h3>
+<input type="text" id="venue" placeholder="Enter Venue">
+</div>
+
+<!-- Stage Decoration -->
+<div class="box">
+<h3>🎀 Stage Decoration</h3>
+<input type="text" id="stageText" placeholder="Enter your decoration idea"><br><br>
+
+<div class="box">
+<h3>📁 Upload Your Stage Photo</h3>
+<input type="file" id="stagePhoto" accept="image/*"><br>
+<img id="preview" style="display:none; width:200px; border-radius:8px;">
+</div>
+</div>
+
+<!-- Location -->
+<div class="box">
+<h3>📍 Location</h3>
+<input type="text" id="location" placeholder="Enter Location" required><br>
+<button type="button" onclick="searchHalls()">🔍 Find Function Halls</button>
+</div>
+
+<!-- Food -->
+<div class="box">
+<h3>🍽 Food</h3>
+<select id="food">
+<option>Veg</option>
+<option>Non-Veg</option>
+<option>Mixed</option>
+</select>
+<br><br>
+<input type="text" id="foodItems" placeholder="Enter your favorite dishes">
+</div>
+
+<!-- Music -->
+<div class="box">
+<h3>🎵 Music</h3>
+<select id="music">
+<option>DJ</option>
+<option>Live Band</option>
+<option>Classical</option>
+<option>Playlist</option>
+</select>
+</div>
+
+<!-- Photography -->
+<div class="box">
+<h3>📸 Photography</h3>
+<select id="photo">
+<option>Traditional</option>
+<option>Candid</option>
+<option>Drone</option>
+<option>Combination</option>
+</select>
+</div>
+
+<center>
+<button type="submit">Book Now</button>
+</center>
+
+</form>
+
+<script>
+// Open Google Maps function
+function searchHalls() {
+    const location = document.getElementById('location').value;
+    if(location) {
+        const url = "https://www.google.com/maps/search/function+halls+in+" + encodeURIComponent(location);
+        window.open(url, "_blank");
+    } else {
+        alert("Please enter location!");
+    }
+}
+
+// Image preview for stage photo
+document.getElementById("stagePhoto").addEventListener("change", function(event) {
+    const file = event.target.files[0];
+    if(file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const preview = document.getElementById("preview");
+            preview.src = e.target.result;
+            preview.style.display = "block";
+        }
+        reader.readAsDataURL(file);
+    }
+});
+
+// Booking form submission
+document.addEventListener("DOMContentLoaded", function() {
+    const bookingForm = document.getElementById("bookingForm");
+
+    bookingForm.addEventListener("submit", function(e) {
+        e.preventDefault(); // prevent reload
+
+        const name = document.getElementById('name').value;
+
+        // Simulate booking success
+        setTimeout(() => {
+            alert(`🎉 Booking Confirmed! 🎉\n\nThank you ${name}, your wedding booking is successful.\nWe will contact you soon.`);
+             // Redirect to payment page with amount
+    const amount = 20000; // set your booking price
+    window.location.href = `p.html?amount=${amount}`;
+            // Reset form and image preview
+            bookingForm.reset();
+            const previewImg = document.getElementById("preview");
+            previewImg.style.display = "none";
+            previewImg.src = "";
+        }, 300);
+    });
+});
+</script>
+
+</body>
+</html>

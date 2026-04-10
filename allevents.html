@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>💍 Complete Wedding Booking 💍</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #fff0f5;
+    padding: 20px;
+}
+header {
+    background: #e91e63;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+.section {
+    background: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+}
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+button {
+    background: #e91e63;
+    color: white;
+    padding: 15px;
+    border: none;
+    width: 220px;
+    display: block;
+    margin: 30px auto;
+    cursor: pointer;
+    border-radius:5px;
+}
+img {
+    width: 140px;
+    height: 100px;
+    margin: 5px;
+    border-radius: 8px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+img.selected {
+    border-color: #e91e63;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🎉 Complete Wedding Package Booking 🎉</h1>
+</header>
+
+<form id="allEventsForm">
+
+<!-- MATRIMONY -->
+<div class="section">
+<h2>Matrimony Meet</h2>
+<input type="text" id="matName" placeholder="Name" required>
+<input type="email" id="matEmail" placeholder="Email" required>
+<input type="text" id="matPhone" placeholder="Phone" required>
+<select id="matGender" required>
+<option value="">Select Gender</option>
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+<input type="text" id="matLocation" placeholder="Preferred Location">
+</div>
+
+<!-- PREWEDDING -->
+<div class="section">
+<h2>Pre Wedding Shoot</h2>
+<p>Enter your story:</p>
+<textarea id="preStory" placeholder="Your love story"></textarea>
+<label>Wedding Date:</label>
+<input type="date" id="preDate">
+</div>
+
+<!-- ENGAGEMENT -->
+<div class="section">
+<h2>Engagement</h2>
+<input type="text" id="engStage" placeholder="Stage Idea">
+<label>Upload Stage Photo:</label>
+<input type="file" id="engPhoto" accept="image/*"><br>
+<img id="engPreview" style="display:none; width:200px; border-radius:8px;">
+<input type="text" id="engLocation" placeholder="Location">
+<select id="engFood">
+<option>Veg</option>
+<option>Non-Veg</option>
+<option>Mixed</option>
+</select>
+<input type="text" id="engFoodItems" placeholder="Food Items">
+<select id="engMusic">
+<option>DJ</option>
+<option>Live Band</option>
+<option>Classical</option>
+<option>Playlist</option>
+</select>
+</div>
+
+<!-- SANGEET -->
+<div class="section">
+<h2>Sangeet Ceremony</h2>
+<input type="text" id="sangeetStage" placeholder="Stage Idea / Theme">
+<label>Upload Stage Photo:</label>
+<input type="file" id="sangeetPhoto" accept="image/*"><br>
+<img id="sangeetPreview" style="display:none; width:200px; border-radius:8px;">
+<input type="text" id="sangeetLocation" placeholder="Location">
+<input type="number" id="sangeetGuests" placeholder="Number of Guests">
+<select id="sangeetMusic">
+<option>DJ</option>
+<option>Live Band</option>
+<option>Classical</option>
+<option>Bollywood</option>
+<option>Fusion</option>
+</select>
+<select id="sangeetFood">
+<option>Veg</option>
+<option>Non-Veg</option>
+<option>Mixed</option>
+</select>
+<input type="text" id="sangeetFoodItems" placeholder="Food Items">
+</div>
+
+<!-- HALDI -->
+<div class="section">
+<h2>Haldi Ceremony</h2>
+<select id="haldiMusic">
+<option>Bollywood Hits</option>
+<option>DJ Remix</option>
+<option>Romantic</option>
+<option>Folk</option>
+</select>
+<select id="haldiTheme">
+<option>Floral Theme</option>
+<option>Traditional</option>
+<option>Modern</option>
+</select>
+<input type="text" id="haldiName" placeholder="Your Name">
+<textarea id="haldiMsg" placeholder="Write message"></textarea>
+</div>
+
+<!-- WEDDING BOOKING -->
+<div class="section">
+<h2>Wedding Booking</h2>
+<input type="text" id="wedName" placeholder="Name" required>
+<input type="text" id="wedPhone" placeholder="Phone" required>
+<input type="number" id="wedGuests" placeholder="Guests Count" required>
+<select id="wedReligion" required>
+<option value="">Select Religion</option>
+<option>Hindu</option>
+<option>Christian</option>
+<option>Muslim</option>
+<option>Sikh</option>
+<option>Other</option>
+</select>
+<input type="text" id="wedVenue" placeholder="Enter Venue">
+<input type="text" id="wedStageText" placeholder="Stage Decoration Idea">
+<label>Upload Stage Photo:</label>
+<input type="file" id="wedStagePhoto" accept="image/*"><br>
+<img id="wedPreview" style="display:none; width:200px; border-radius:8px;">
+<input type="text" id="wedLocation" placeholder="Location" required>
+<select id="wedFood">
+<option>Veg</option>
+<option>Non-Veg</option>
+<option>Mixed</option>
+</select>
+<input type="text" id="wedFoodItems" placeholder="Food Items">
+<select id="wedMusic">
+<option>DJ</option>
+<option>Live Band</option>
+<option>Classical</option>
+<option>Playlist</option>
+</select>
+<select id="wedPhoto">
+<option>Traditional</option>
+<option>Candid</option>
+<option>Drone</option>
+<option>Combination</option>
+</select>
+</div>
+
+<!-- RECEPTION -->
+<div class="section">
+<h2>Reception</h2>
+<p>Select Hall:</p>
+<div id="hallOptions">
+<img src="https://media.weddingz.in/images/bbda52972b1de50671f1b9de639610de/Anais-Events-6.jpg" onclick="selectHall(this, 'Taj Coromandel Chennai')">
+<img src="https://cdn0.weddingwire.in/article/6077/original/1280/jpg/127706-flower-wedding-stage-decoration-1-the-wedding-experience.jpeg" onclick="selectHall(this, 'ITC Grand Chola Chennai')">
+<img src="https://media.weddingz.in/images/09909f5de0dc38961cee6f533cb96fbf/Wedding-Reception-Stage-Decoration-Ideas29.jpg" onclick="selectHall(this, 'Leela Palace Chennai')">
+<img src="https://image.cdn.shpy.in/337348/SKU-1291_2-1712066594709.jpg?format=webp&width=600" onclick="selectHall(this, 'Green Park Hotel Chennai')">
+<img src="https://www.manyavar.com/dw/image/v2/BJZV_PRD/on/demandware.static/-/Library-Sites-ManyavarSharedLibrary/default/dw92962608/manyavar%20images%20m/51938/Manyavar%20%26%20Mohey%20Non-Apparel%20-%20Reception%20Stage%20Decoration%20Ideas%20That%20Make%20a%20Statement_blog%201%20copy.jpg" onclick="selectHall(this, 'Hyatt Regency Chennai')">
+</div>
+<input type="text" id="recLocation" placeholder="Enter Location" required>
+<input type="number" id="recGuests" placeholder="Number of Guests" required>
+<select id="recFoodType">
+<option>Veg</option>
+<option>Non-Veg</option>
+<option>Mixed</option>
+</select>
+<input type="text" id="recFoodItems" placeholder="Food Items">
+<select id="recMusic">
+<option>DJ</option>
+<option>Live Band</option>
+<option>Classical</option>
+<option>Playlist</option>
+</select>
+<select id="recPhotography">
+<option>Traditional</option>
+<option>Candid</option>
+<option>Drone</option>
+<option>Photo Booth</option>
+<option>Combination</option>
+</select>
+<input type="text" id="recName" placeholder="Your Name" required>
+<input type="email" id="recEmail" placeholder="Email" required>
+<input type="tel" id="recPhone" placeholder="Phone" required>
+</div>
+
+<button type="submit">Proceed to Payment</button>
+</form>
+
+<script>
+// Hall selection
+let selectedHall = '';
+function selectHall(img, hallName){
+    document.querySelectorAll('#hallOptions img').forEach(i=>i.classList.remove('selected'));
+    img.classList.add('selected');
+    selectedHall = hallName;
+}
+
+// Image preview function
+function previewImage(inputId, imgId){
+    document.getElementById(inputId).addEventListener("change", function(event){
+        const file = event.target.files[0];
+        if(file){
+            const reader = new FileReader();
+            reader.onload = function(e){
+                const preview = document.getElementById(imgId);
+                preview.src = e.target.result;
+                preview.style.display = "block";
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+}
+previewImage('engPhoto','engPreview');
+previewImage('wedStagePhoto','wedPreview');
+previewImage('sangeetPhoto','sangeetPreview');
+
+// Form submission
+document.getElementById("allEventsForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    alert("All Events Booked Successfully ✅");
+
+    // Set total amount for all events
+    let total = 60000; // Adjust according to your pricing for all events
+    window.location.href = "p.html?amount=" + total;
+});
+</script>
+
+</body>
+</html>

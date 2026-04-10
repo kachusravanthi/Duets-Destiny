@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Matrimony Event Booking</title>
+</head>
+<div class="topnav">
+<a href=file:///C:/Users/mjptb/OneDrive/Desktop/matrimony%20project/vaishu/anu.html>🏠HOME🏠</a>
+<style>
+body {
+    background-image: url("navya.png");
+    background-size: cover;       /* makes image cover full screen */
+    background-repeat: no-repeat; /* prevents repeating */
+    background-position: center;  /* centers the image */
+}
+ </style>   <!-- Header -->
+    <div style="text-align:left; padding:25px; font-size:26px; font-weight:bold;">
+       <center><h2><b> 💖<u> Matrimony Event Booking</u>💖</b></h2s></center>
+    </div>
+
+    <!-- Main Section -->
+    <div style="padding:40px; display:flex; justify-content:space-around; flex-wrap:wrap;">
+
+        <!-- left Form Section -->
+        <div style="width:50%; min-width:250px;">
+            <form id="bookingForm">
+
+                <label>Full Name</label><br>
+                <input type="text" required style="width:100%; padding:10px; margin:8px 0;"><br>
+
+                <label>Email</label><br>
+                <input type="email" required style="width:100%; padding:10px; margin:8px 0;"><br>
+
+                <label>Phone Number</label><br>
+                <input type="text" required style="width:100%; padding:10px; margin:8px 0;"><br>
+
+                <label>Event Type</label><br>
+                <select id="eventType" style="width:100%; padding:10px; margin:8px 0;">
+                    <option value="mm.html">Matrimony Meet</option>
+                    <option value="pw.html">Prewedding Shoot</option>
+                    <option value="eg.html">Engagement</option>
+                    <option value="sangeeth.html">Sangeeth</option>
+                    <option value="haldi.html">Haldi</option>
+                    <option value="wedding.html">Wedding</option>
+                    <option value="reception.html">Reception</option>
+                    <option value="allevents.html">All Wedding Events</option>
+
+
+                </select><br>
+              
+
+                <label>Event Date</label><br>
+                <input type="date" required style="width:100%; padding:10px; margin:8px 0;"><br>
+
+                <label>Number of Guests</label><br>
+                <input type="number" style="width:100%; padding:10px; margin:8px 0;"><br>
+
+                <label>Venue</label><br>
+                <input type="text" style="width:100%; padding:10px; margin:8px 0;"><br>
+
+                <input type="submit" value="Book Event" style="width:100%; padding:12px; margin-top:15px; background:#c2185b; color:white; border:none; font-size:16px; cursor:pointer;">
+
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div style="text-align:center; padding:15px; font-size:14px; color:#555; border-top:1px solid #ccc;">
+       
+    </div>
+<!-- Events Section -->
+<a name="events"></a>
+<h1><b>🎉<u> Wedding Event Services</u></b></h1>
+
+<ul>
+    <li><h2>💒 Venue Booking</h2></li>
+    <li><h2>🍽 Catering Services</h2></li>
+    <li><h2>🌸 Decoration</h2></li>
+    <li><h2>📸 Photography & Videography</h2></li>
+    <li><h2>🎵 Music & DJ</h2></li>
+ © 2026 Matrimony Event Management System
+
+</ul>
+<script>
+document.getElementById('bookingForm').addEventListener('submit', function(e){
+    e.preventDefault(); // prevents default form submission
+    var eventPage = document.getElementById('eventType').value;
+    if(eventPage){
+        window.location.href = eventPage; // redirects to selected event page
+    } else {
+        alert("Please select an event type!");
+    }
+});
+</script>
+</body>
+</html>

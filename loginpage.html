@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Matrimony Login</title>
+ <script>
+        function validateForm() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+
+            if (username === "" || password === "") {
+                alert("Please fill all fields!");
+                return false; // stop form submission
+            }
+            return true; // allow submission
+        }
+    </script>
+</head>
+<div class="topnav">
+<a href=file:"anu.html">🏠HOME🏠</a>
+<body style="
+    margin:0;
+    height:100vh;
+    font-family: Arial, sans-serif;
+    background-image: url('file:///C:/Users/mjptb/Downloads/love.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+">
+    <div style="
+        width:360px;
+        background: rgba(255,255,255,0.9);
+        padding:30px;
+        border-radius:15px;
+        text-align:center;
+        box-shadow:0 10px 25px rgba(0,0,0,0.4);
+    ">
+    
+        <h2 style="color:#c2185b;">💖 Matrimony Login 💖</h2>
+
+        <form action="registration.html" method="post">
+            <input type="text" placeholder="Username / Email" required
+            style="
+                width:90%;
+                padding:10px;
+                margin:10px 0;
+                border-radius:5px;
+                border:1px solid #ccc;
+            ">
+
+            <input type="password" placeholder="Password" required
+            style="
+                width:90%;
+                padding:10px;
+                margin:10px 0;
+                border-radius:5px;
+                border:1px solid #ccc;
+            ">
+
+            <input type="submit" value="Login"
+            style="
+                width:95%;
+                padding:10px;
+                background:#c2185b;
+                color:white;
+                border:none;
+                border-radius:5px;
+                font-size:16px;
+                cursor:pointer;
+            ">
+        </form>
+
+        <p style="margin-top:15px;">
+            New User?
+            <a href="#" style="color:#c2185b; text-decoration:none;">
+                Register Here
+            </a>
+        </p>
+
+    </div>
+
+</body>
+</html>

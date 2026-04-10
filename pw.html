@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pre Wedding Shoot</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: #fff0f5;
+        color: #333;
+    }
+
+    header {
+        height: 100vh;
+        background: url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486') center/cover no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+    }
+
+    header h1 {
+        font-size: 3rem;
+        margin: 0;
+    }
+
+    header p {
+        font-size: 1.5rem;
+    }
+
+    section {
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .story {
+        max-width: 800px;
+        margin: auto;
+        line-height: 1.6;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .gallery img {
+        width: 100%;
+        border-radius: 15px;
+    }
+
+    .countdown {
+        font-size: 2rem;
+        color: #e91e63;
+    }
+
+    .contact {
+        background: #ffe4ec;
+        padding: 40px;
+        border-radius: 20px;
+        max-width: 500px;
+        margin: auto;
+    }
+
+    footer {
+        background: #e91e63;
+        color: white;
+        padding: 15px;
+        text-align: center;
+    }
+
+    button {
+        background: #e91e63;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <div>
+        <h1>❤️o</h1>
+        <p>Our Pre-Wedding Story</p>
+    </div>
+</header>
+
+<section>
+    <h2>Our Love Story</h2>
+    <p class="story">
+        It all started with a simple hello… and turned into a lifetime promise.
+        From laughter to adventures, we found love in every moment together.
+    </p>
+</section>
+
+<section>
+    <h2>Gallery</h2>
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+        <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9">
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc">
+    </div>
+</section>
+
+<section>
+    <h2>Wedding Countdown</h2>
+    <div class="countdown" id="countdown"></div>
+</section>
+
+<section>
+    <h2>Book Your Shoot</h2>
+    <div class="contact">
+        <p>Contact us for beautiful pre-wedding photography!</p>
+        <button onclick="bookShoot()">Book Pre-Wedding Shoot</button>
+    </div>
+</section>
+<footer>
+    <p>Made with ❤️ for our special journey</p>
+</footer>
+<script>
+function bookShoot() {
+    alert("Pre-Wedding Shoot Booked ❤️");
+
+    let price = 12000;
+
+    // redirect to payment page
+    window.location.href = "p.html?amount=" + price;
+}
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💍 Engagement Booking 💍</title>
+<style>
+body { 
+    font-family: Arial; 
+    background: url("egpic2.webp") no-repeat center center fixed; 
+    background-size: cover; 
+    padding: 20px; 
+}
+h1 { text-align: center; color: #e91e63; }
+.box { background: rgba(255,255,255,0.9); padding: 15px; margin: 15px 0; border-radius: 10px; box-shadow: 0 0 8px gray; }
+img { width: 140px; height: 100px; margin: 5px; border-radius: 8px; object-fit: cover; cursor: pointer; transition: 0.3s; }
+img:hover { transform: scale(1.1); }
+button { background: #e91e63; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+#result { margin-top: 20px; background: white; padding: 15px; border-radius: 10px; }
+input, select { width: 100%; padding: 8px; margin: 5px 0; border-radius: 5px; border: 1px solid #ccc; }
+</style>
+</head>
+<body>
+
+<h1>💍 Engagement Booking 💍</h1>
+
+<form id="bookingForm">
+
+<!-- Stage Decoration -->
+<div class="box">
+<h3>🎀 Stage Decoration</h3>
+<input type="text" id="customStage" placeholder="Type your idea"><br>
+<input type="file" id="stagePhoto" accept="image/*"><br>
+<img id="uploadedPreview" style="display:none;"><br>
+
+<h4>Example Stage Decoration Photos:</h4>
+<img src="https://images.unsplash.com/photo-1603575448369-1c2f6f6a9c45">
+<img src="https://bookanevent.in/public/uploads/all/MBMownTDm7S1iey3OnNLDvwYuz2SDYd0eD8bNVnG.png">
+<img src="https://www.tricity24.com/cdn/shop/products/p451_1024x1024.png?v=1680347321">
+<img src="https://cheetah.cherishx.com/uploads/1691060899_original.jpg">
+<img src="https://m.media-amazon.com/images/I/51sF70TVc7L._AC_UF1000,1000_QL80_.jpg">
+</div>
+
+<!-- Location -->
+<div class="box">
+<h3>📍 Location</h3>
+<input type="text" id="location" placeholder="Enter Location" required><br>
+<button type="button" onclick="searchHalls()">🔍 Find Function Halls</button>
+</div>
+
+<!-- Guests -->
+<div class="box">
+<h3>👥 Number of Guests</h3>
+<input type="number" id="guests" placeholder="Enter number of guests" min="1" required>
+</div>
+
+<!-- Food -->
+<div class="box">
+<h3>🍽 Food Menu</h3>
+<select id="foodType">
+<option value="">Select Food Type</option>
+<option>Veg</option>
+<option>Non-Veg</option>
+<option>Mixed</option>
+</select>
+<input type="text" id="foodItems" placeholder="Enter your favorite dishes">
+</div>
+
+<!-- Music -->
+<div class="box">
+<h3>🎵 Music</h3>
+<select id="music">
+<option value="">Select Music</option>
+<option>DJ</option>
+<option>Live Band</option>
+<option>Classical</option>
+<option>Playlist</option>
+</select>
+</div>
+
+<!-- Photography -->
+<div class="box">
+<h3>📸 Photography Style</h3>
+<select id="photography">
+<option value="">Select Photography</option>
+<option>Traditional</option>
+<option>Candid</option>
+<option>Drone</option>
+<option>Photo Booth</option>
+<option>Combination</option>
+</select>
+</div>
+
+<center><button type="submit">Book Engagement</button></center>
+</form>
+
+<div id="result"></div>
+<script>
+
+// Open selected hall in Google Maps
+function openHall(mapLink) {
+    window.open(mapLink, "_blank");
+}
+
+// Search halls based on user location
+function searchHalls() {
+    const location = document.getElementById('location').value;
+
+    if(location) {
+        const url = "https://www.google.com/maps/search/function+halls+in+" 
+                    + encodeURIComponent(location);
+        window.open(url, "_blank");
+    } else {
+        alert("Please enter location!");
+    }
+}
+
+// Form submission
+document.getElementById("bookingForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const location = document.getElementById('location').value;
+    const guests = document.getElementById('guests').value;
+    const foodType = document.getElementById('foodType').value;
+    const foodItems = document.getElementById('foodItems').value || "Not specified";
+    const music = document.getElementById('music').value;
+    const photography = document.getElementById('photography').value;
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+
+    document.getElementById('result').innerHTML =
+        "<h2>✅ Booking Submitted!</h2>" +
+        "<p><b>Name:</b> " + name + "</p>" +
+        "<p><b>Email:</b> " + email + "</p>" +
+        "<p><b>Phone:</b> " + phone + "</p>" +
+        "<p><b>Location:</b> " + location + "</p>" +
+        "<p><b>Guests:</b> " + guests + "</p>" +
+        "<p><b>Food:</b> " + foodType + "</p>" +
+        "<p><b>Dishes:</b> " + foodItems + "</p>" +
+        "<p><b>Music:</b> " + music + "</p>" +
+        "<p><b>Photography:</b> " + photography + "</p>" +
+        "<p>We will contact you soon 💌</p>";
+});
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Us</title>
+</head>
+
+<style>
+body{
+    font-family: Arial;
+    background-image: url("contact-info.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+.container{
+    width: 400px;
+    margin: auto;
+    background:blur;
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+}
+
+input, textarea{
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+}
+
+button{
+    padding: 10px 20px;
+    background: #ff4d6d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+.topnav a {
+    color: white;
+    text-decoration: none; /* removes underline */
+    font-size: 18px;
+    font-weight: bold;
+}
+</style>
+
+</head>
+
+<body>
+<div class="topnav">
+    <a href="anu.html">🏠 HOME 🏠 </a>
+</div>
+
+
+<div class="container">
+    <h2>Contact Us</h2>
+     <p>📞 +91 9876543210</p>
+    <p>📧 matrimonymeet@gmail.com</p>
+
+    <form onsubmit="submitForm(event)">
+        <input type="text" placeholder="Your Name" required><br>
+        <input type="email" placeholder="Your Email" required><br>
+        <textarea placeholder="Your Message" required></textarea><br>
+        <button type="submit">Send</button>
+    </form>
+
+    <p id="msg"></p>
+</div>
+
+<script>
+function submitForm(event){
+    event.preventDefault();
+    document.getElementById("msg").innerHTML = "✅ Message Sent Successfully!";
+}
+</script>
+
+</body>
+</html>

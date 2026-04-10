@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sangeet Booking</title>
+
+<style>
+body { font-family: Arial; background: #fff3e0; padding: 20px; }
+h1 { text-align: center; color: #ff5722; }
+
+.box {
+    background: white;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 8px gray;
+}
+
+img {
+    width: 180px;
+    height: 120px;
+    margin: 5px;
+    border-radius: 8px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+img:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 15px #ff5722;
+}
+
+button {
+    background: #ff5722;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#selectedStage {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #ff5722;
+}
+
+#confirmation {
+    margin-top: 20px;
+    padding: 15px;
+    background: #dcedc8;
+    border-radius: 10px;
+    color: #33691e;
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<h1>💃 Sangeet Booking 💃</h1>
+
+<form id="bookingForm">
+
+<!-- Stage Selection -->
+<div class="box">
+<h3>🎀 Select Your Sangeet Stage</h3>
+
+<div class="gallery">
+    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819" onclick="selectStage('DJ Night Stage')">
+    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30" onclick="selectStage('Concert Lights Stage')">
+    <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063" onclick="selectStage('Dance Floor Stage')">
+    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745" onclick="selectStage('LED Light Stage')">
+    <img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2" onclick="selectStage('Party Night Stage')">
+    <img src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec" onclick="selectStage('Club Stage Setup')">
+</div>
+
+<p id="selectedStage">Selected: None</p>
+<input type="hidden" id="stageInput">
+</div>
+
+<!-- Location -->
+<div class="box">
+<h3>📍 Location</h3>
+<input type="text" id="location" placeholder="Enter location" required>
+</div>
+
+<!-- Food -->
+<div class="box">
+<h3>🍽 Food Menu</h3>
+<select id="food">
+<option>Veg</option>
+<option>Non-Veg</option>
+<option>Mixed</option>
+</select><br><br>
+<input type="text" id="foodItems" placeholder="Enter dishes">
+</div>
+
+<!-- Music -->
+<div class="box">
+<h3>🎵 DJ / Music</h3>
+<select id="music">
+<option>DJ</option>
+<option>Live Band</option>
+<option>Playlist</option>
+</select>
+</div>
+
+<!-- Photography -->
+<div class="box">
+<h3>📸 Photography Style</h3>
+<select id="photography">
+<option>Traditional</option>
+<option>Candid</option>
+<option>Drone</option>
+<option>Photo Booth</option>
+<option>Combination</option>
+</select>
+</div>
+
+<!-- Games -->
+<div class="box">
+<h3>🎮 Fun Games</h3>
+<label>Do you want fun games?</label><br>
+<input type="radio" name="games" onclick="showGames()"> Yes
+<input type="radio" name="games" onclick="hideGames()"> No
+
+<div id="gameOptions" style="display:none; margin-top:10px;">
+    <p>Example Games:</p>
+    <ul>
+        <li>Shoe Game 👟</li>
+        <li>Couple Quiz 💑</li>
+        <li>Dance Battle 💃</li>
+    </ul>
+
+    <input type="text" id="customGame" placeholder="Type your game idea">
+</div>
+</div>
+
+<center>
+<button type="submit">Book Now</button>
+</center>
+
+</form>
+
+<div id="confirmation">✅ Booking Successful!</div>
+
+<script>
+
+let selectedStageValue = "None";
+
+function selectStage(name){
+    selectedStageValue = name;
+    document.getElementById("selectedStage").innerText = "Selected: " + name;
+    document.getElementById("stageInput").value = name;
+}
+
+function showGames(){
+    document.getElementById("gameOptions").style.display = "block";
+}
+
+function hideGames(){
+    document.getElementById("gameOptions").style.display = "none";
+}
+
+// FORM SUBMIT → REDIRECT TO p.html
+document.getElementById("bookingForm").addEventListener("submit", function(e){
+    e.preventDefault(); // stop reload
+
+    document.getElementById("confirmation").style.display = "block";
+
+    setTimeout(() => {
+        window.location.href = "p.html";
+    }, 1500);
+});
+
+</script>
+
+</body>
+</html>
