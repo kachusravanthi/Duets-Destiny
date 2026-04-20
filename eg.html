@@ -138,7 +138,7 @@ document.getElementById("bookingForm").addEventListener("submit", function(e){
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
 
-    // ✅ validation added
+    // validation
     if(!location || !guests || !foodType || !music || !photography || !name || !email || !phone){
         alert("⚠️ Please fill all required fields!");
         return;
@@ -146,18 +146,12 @@ document.getElementById("bookingForm").addEventListener("submit", function(e){
 
     document.getElementById('result').innerHTML =
         "<h2>✅ Booking Submitted!</h2>" +
-        "<p><b>Name:</b> " + name + "</p>" +
-        "<p><b>Email:</b> " + email + "</p>" +
-        "<p><b>Phone:</b> " + phone + "</p>" +
-        "<p><b>Location:</b> " + location + "</p>" +
-        "<p><b>Guests:</b> " + guests + "</p>" +
-        "<p><b>Food:</b> " + foodType + "</p>" +
-        "<p><b>Music:</b> " + music + "</p>" +
-        "<p><b>Photography:</b> " + photography + "</p>" +
-        "<p>We will contact you soon 💌</p>";
+        "<p>Redirecting to payment...</p>";
+
+    // ✅ IMPORTANT: redirect
+    setTimeout(function(){
+        window.location.href = "payment.html";
+    }, 2000);
 });
 </script>
-
-</body>
-</html>
-
+</body></html>
