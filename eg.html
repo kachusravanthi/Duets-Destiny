@@ -123,18 +123,24 @@ function searchHalls() {
 }
 
 // Form submission
+<script>
 document.getElementById("bookingForm").addEventListener("submit", function(e){
     e.preventDefault();
 
     const location = document.getElementById('location').value;
     const guests = document.getElementById('guests').value;
     const foodType = document.getElementById('foodType').value;
-    const foodItems = document.getElementById('foodItems').value || "Not specified";
     const music = document.getElementById('music').value;
     const photography = document.getElementById('photography').value;
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
+
+    // ✅ validation added
+    if(!location || !guests || !foodType || !music || !photography || !name || !email || !phone){
+        alert("⚠️ Please fill all required fields!");
+        return;
+    }
 
     document.getElementById('result').innerHTML =
         "<h2>✅ Booking Submitted!</h2>" +
@@ -144,12 +150,10 @@ document.getElementById("bookingForm").addEventListener("submit", function(e){
         "<p><b>Location:</b> " + location + "</p>" +
         "<p><b>Guests:</b> " + guests + "</p>" +
         "<p><b>Food:</b> " + foodType + "</p>" +
-        "<p><b>Dishes:</b> " + foodItems + "</p>" +
         "<p><b>Music:</b> " + music + "</p>" +
         "<p><b>Photography:</b> " + photography + "</p>" +
         "<p>We will contact you soon 💌</p>";
 });
-
 </script>
 
 </body>
