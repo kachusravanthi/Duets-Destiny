@@ -113,17 +113,14 @@ button {
 </div>
 
 <script>
-// Get amount from URL
-let amount = new URLSearchParams(window.location.search).get('amount') || 50000;
-
-// Show amount
-document.getElementById("amount").value = amount;
-document.getElementById("total").innerHTML = "Total Amount: ₹" + amount;
-
 // Card payment
 function paymentSuccess() {
     alert("Payment Successful ✅");
-    window.location.href = "success.html";
+
+    setTimeout(()=>{
+        window.location.href = "contact.html";
+    }, 2000); // 2 seconds delay
+
     return false;
 }
 
@@ -134,7 +131,11 @@ function pay(method){
 
     setTimeout(()=>{
         alert(method + " Payment Successful ✅");
-        window.location.href = "success.html";
+
+        setTimeout(()=>{
+            window.location.href = "contact.html";
+        }, 2000);
+
     },2000);
 }
 </script>
